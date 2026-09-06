@@ -11,10 +11,8 @@ export const profile = {
     "Building cloud-native ETL pipelines, real-time streaming systems, and scalable data lake architectures on AWS & GCP.",
   location: "Chennai, India",
   email: "abhirupiiitdmk26@gmail.com",
-  phone: "+91 6291128903",
   github: "https://github.com/cybersynergy-ds",
   linkedin: "https://linkedin.com/in/abhirup-choudhury",
-  resumeUrl: "/resume.pdf",
 };
 
 export const summary =

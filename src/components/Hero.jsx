@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiMail, FiDownload } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { profile } from "../data/portfolio";
+import heroDashboard from "../assets/hero-dashboard.jpg";
 
 export default function Hero() {
   return (
     <section id="top" className="hero">
+      <div
+        className="hero__image"
+        style={{ backgroundImage: `url(${heroDashboard})` }}
+        aria-hidden="true"
+      />
       <div className="hero__bg" aria-hidden="true" />
       <motion.div
         className="hero__content"
@@ -18,9 +24,6 @@ export default function Hero() {
         <p className="hero__tagline">{profile.tagline}</p>
 
         <div className="hero__cta">
-          <a className="btn btn--primary" href={profile.resumeUrl} target="_blank" rel="noreferrer">
-            <FiDownload /> Download Resume
-          </a>
           <a className="btn btn--ghost" href="#projects">
             View Projects
           </a>

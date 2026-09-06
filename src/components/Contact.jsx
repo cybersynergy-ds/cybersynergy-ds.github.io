@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import Section from "./Section";
 import Reveal from "./Reveal";
 import { profile } from "../data/portfolio";
@@ -15,10 +15,6 @@ export default function Contact() {
           <a className="contact__item" href={`mailto:${profile.email}`}>
             <FiMail />
             <span>{profile.email}</span>
-          </a>
-          <a className="contact__item" href={`tel:${profile.phone.replace(/\s/g, "")}`}>
-            <FiPhone />
-            <span>{profile.phone}</span>
           </a>
           <a
             className="contact__item"
