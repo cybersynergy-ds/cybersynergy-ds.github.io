@@ -7,7 +7,10 @@
 export const profile = {
   name: "Abhirup Choudhury",
   title: "Data Engineer",
-  quote: "I don't just move data — I build pipelines that make it matter.",
+  quoteLines: [
+    "I don't just move data —",
+    "I build pipelines and solutions that make complex things easy to visualize and understand.",
+  ],
   tagline:
     "Building cloud-native ETL pipelines, real-time streaming systems, and scalable data lake architectures on AWS & GCP.",
   location: "Chennai, India",

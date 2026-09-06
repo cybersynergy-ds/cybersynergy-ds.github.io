@@ -57,8 +57,11 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <p className="hero__eyebrow">Hello,</p>
-        <h1 className="hero__quote">{profile.quote}</h1>
+        <h1 className="hero__quote">
+          {profile.quoteLines[0]}
+          <br />
+          {profile.quoteLines[1]}
+        </h1>
         <p className="hero__intro">
           I'm {profile.name} — on my journey to becoming a skilled{" "}
           {profile.title}. {profile.tagline}
