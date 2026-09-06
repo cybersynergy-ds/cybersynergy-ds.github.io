@@ -57,10 +57,12 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <p className="hero__eyebrow">Hi, I'm</p>
-        <h1 className="hero__name">{profile.name}</h1>
-        <h2 className="hero__title">{profile.title}</h2>
-        <p className="hero__tagline">{profile.tagline}</p>
+        <p className="hero__eyebrow">Hello,</p>
+        <h1 className="hero__quote">{profile.quote}</h1>
+        <p className="hero__intro">
+          I'm {profile.name} — on my journey to becoming a skilled{" "}
+          {profile.title}. {profile.tagline}
+        </p>
 
         <div className="hero__cta">
           <a className="btn btn--ghost" href="#projects">
