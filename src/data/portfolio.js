@@ -8,8 +8,8 @@ export const profile = {
   name: "Abhirup Choudhury",
   title: "Data Engineer",
   quoteLines: [
-    "I don't just move data —",
-    "I build pipelines and solutions that make complex things easy to visualize and understand.",
+    "Somewhere between raw data and real insight, there's a pipeline.",
+    "I build those.",
   ],
   tagline:
     "Building cloud-native ETL pipelines, real-time streaming systems, and scalable data lake architectures on AWS & GCP.",
