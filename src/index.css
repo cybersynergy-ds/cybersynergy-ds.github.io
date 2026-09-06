@@ -102,6 +102,18 @@ main {
   overflow-x: hidden;
 }
 
+/* ── Scroll progress ─────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  z-index: 100;
+}
+
 /* ── Navbar ──────────────────────────────────────────────── */
 .navbar {
   position: sticky;
@@ -143,6 +155,7 @@ main {
 }
 
 .navbar__links a {
+  position: relative;
   font-size: 14px;
   font-weight: 500;
   color: var(--muted);
@@ -153,11 +166,26 @@ main {
   color: var(--text-h);
 }
 
+.navbar__links--desktop a.active {
+  color: var(--text-h);
+}
+
+.navbar__indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
 .navbar__links--mobile {
   display: none;
   flex-direction: column;
   gap: 4px;
   padding: 8px 24px 20px;
+  overflow: hidden;
 }
 
 .navbar__actions {
@@ -211,12 +239,18 @@ main {
 .hero__image {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   opacity: 0.12;
   filter: brightness(0.6) saturate(0.8);
   pointer-events: none;
   z-index: -2;
+}
+
+.hero__image-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__bg {
@@ -290,6 +324,21 @@ main {
 .hero__socials a:hover {
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  color: var(--muted);
+  font-size: 22px;
+  transition: color 0.2s ease;
+}
+
+.hero__scroll-cue:hover {
+  color: var(--accent);
 }
 
 /* ── Buttons ─────────────────────────────────────────────── */
@@ -406,6 +455,23 @@ main {
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-bg);
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px var(--accent-bg);
+  }
+  50% {
+    box-shadow: 0 0 0 8px var(--accent-bg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__dot {
+    animation: none;
+  }
 }
 
 .timeline__card {
@@ -475,6 +541,11 @@ main {
   border-radius: 999px;
   background: var(--accent-bg);
   color: var(--accent);
+  transition: transform 0.15s ease;
+}
+
+.tag:hover {
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* ── Projects ────────────────────────────────────────────── */
