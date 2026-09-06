@@ -276,7 +276,7 @@ main {
 }
 
 .hero__quote {
-  font-size: clamp(30px, 5vw, 52px);
+  font-size: clamp(24px, 3.6vw, 40px);
   line-height: 1.15;
   color: var(--accent);
   max-width: 720px;
