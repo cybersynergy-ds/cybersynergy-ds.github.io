@@ -145,7 +145,7 @@ export const education = [
     school: "IIITDM Kancheepuram",
     degree: "B.Tech in Smart Manufacturing",
     period: "2022 – 2026",
-    detail: "CGPA: 7.9/10",
+    detail: "CGPA: 8.0/10",
   },
   {
     school: "IIT Madras",
