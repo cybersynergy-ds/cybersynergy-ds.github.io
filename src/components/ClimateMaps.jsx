@@ -155,23 +155,11 @@ export default function ClimateMaps() {
                 <h4>{active.title}</h4>
                 <p className="climate__modal-metric">{active.metric}</p>
 
-                <div className="climate__whwr">
-                  {[
-                    ["What", active.what],
-                    ["How", active.how],
-                    ["Why", active.why],
-                    ["Result", active.result],
-                  ].map(([label, points]) => (
-                    <div key={label}>
-                      <span className="climate__label">{label}</span>
-                      <ul className="climate__points">
-                        {points.map((point) => (
-                          <li key={point}>{point}</li>
-                        ))}
-                      </ul>
-                    </div>
+                <ul className="climate__points">
+                  {active.points.map((point) => (
+                    <li key={point}>{point}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             </motion.div>
           </motion.div>

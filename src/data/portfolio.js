@@ -64,22 +64,11 @@ export const climateMaps = [
     title: "Temperature",
     file: "portfolio_temperature_map.jpg",
     metric: "Annual avg 2m temperature · 2025",
-    what: [
-      "Annual average surface temperature across the region",
-      "Gridded at ~9km resolution",
-    ],
-    how: [
-      "Averaged ERA5-Land hourly readings → daily → annual means",
-      "Processed as a PySpark batch job on the AWS data lake",
-      "Served through a dimensional schema for fast SQL access",
-    ],
-    why: [
-      "Drives pest pressure and evapotranspiration rates",
-      "Marks the point a crop starts losing yield to heat stress",
-    ],
-    result: [
-      "Produced heat-stress bands per zone",
-      "Let the team schedule irrigation/shade before yield loss",
+    points: [
+      "Annual average surface temperature across the region, gridded at ~9km resolution",
+      "Averaged ERA5-Land hourly readings → daily → annual means via a PySpark batch job on the AWS data lake",
+      "Drives pest pressure, evapotranspiration, and the point a crop starts losing yield to heat stress",
+      "Produced heat-stress bands per zone, used to schedule irrigation/shade before yield loss",
     ],
   },
   {
@@ -87,23 +76,12 @@ export const climateMaps = [
     title: "Precipitation",
     file: "portfolio_precipitation_map.jpg",
     metric: "Total annual precipitation · 2025",
-    what: [
-      "Total rainfall distribution across the region",
-      "Covers full year 2025",
-    ],
-    how: [
-      "Ingested hourly ERA5-Land precip fields via event-driven Lambda ETL",
-      "Aggregated to daily and annual totals",
+    points: [
+      "Total rainfall distribution across the region for 2025",
+      "Ingested hourly ERA5-Land precip fields via event-driven Lambda ETL, aggregated to daily/annual totals",
       "Cross-checked against ground station records",
-    ],
-    why: [
-      "Biggest single driver of irrigation demand",
-      "Flags drought and waterlogging risk per plot",
-    ],
-    result: [
-      "Separated rainfall-deficit zones needing irrigation",
-      "Identified rainfed-suitable zones",
-      "Replaced guesswork with data-backed water budgeting",
+      "Biggest single driver of irrigation demand and drought/waterlogging risk per plot",
+      "Separated rainfall-deficit zones needing irrigation from rainfed-suitable zones",
     ],
   },
   {
@@ -111,23 +89,12 @@ export const climateMaps = [
     title: "Wind Speed",
     file: "portfolio_wind_speed_map.jpg",
     metric: "Annual avg wind speed · 2025",
-    what: [
-      "Average near-surface wind speed across the region",
-      "Full year 2025",
-    ],
-    how: [
-      "Derived from ERA5-Land u/v wind components → √(u²+v²)",
-      "Decompressed from GRIB files by the automated ingestion pipeline",
+    points: [
+      "Average near-surface wind speed across the region for 2025",
+      "Derived from ERA5-Land u/v wind components → √(u²+v²), decompressed from GRIB files",
       "Rendered geospatially with Folium",
-    ],
-    why: [
-      "Drives pesticide-spray drift risk",
-      "Affects evapotranspiration and structural risk (greenhouses)",
-    ],
-    result: [
-      "Set safe-spray-window guidance per zone",
-      "Flagged high-wind areas needing windbreaks",
-      "Cut drift-related crop damage",
+      "Drives pesticide-spray drift, evapotranspiration, and structural risk for greenhouses",
+      "Set safe-spray-window guidance per zone and flagged areas needing windbreaks",
     ],
   },
   {
@@ -135,22 +102,12 @@ export const climateMaps = [
     title: "Soil pH",
     file: "portfolio_soil_ph_map.jpg",
     metric: "Soil acidity / alkalinity · 2025",
-    what: [
-      "Spatial variation in soil acidity/alkalinity",
-      "Across the full coverage region",
-    ],
-    how: [
-      "Joined ERA5-Land soil-moisture/type layers with soil survey data",
-      "Matched on a common geospatial key",
-      "Modeled pH at grid level",
-    ],
-    why: [
-      "Controls nutrient availability to the crop",
-      "Wrong pH = starved nutrients even with correct fertilizer",
-    ],
-    result: [
-      "Flagged acidic zones needing lime amendment",
-      "Improved fertilizer ROI for target farms",
+    points: [
+      "Spatial variation in soil acidity/alkalinity across the region",
+      "Joined ERA5-Land soil-moisture/type layers with regional soil survey data on a geospatial key",
+      "Modeled pH at grid level for the coverage area",
+      "Controls nutrient availability — wrong pH starves the crop even with correct fertilizer",
+      "Flagged acidic zones needing lime amendment, improving fertilizer ROI",
     ],
   },
   {
@@ -158,23 +115,12 @@ export const climateMaps = [
     title: "Elevation",
     file: "portfolio_elevation_map.jpg",
     metric: "Terrain height (DEM) · static",
-    what: [
-      "Digital elevation model of terrain height",
-      "Across the coverage region",
-    ],
-    how: [
-      "Extracted geopotential height from ERA5-Land GRIB files",
-      "Converted to elevation using standard gravity",
-      "Gridded into a choropleth layer with the other features",
-    ],
-    why: [
-      "Shapes micro-climate: lapse rate, drainage, frost risk",
-      "Critical for siting crops and irrigation infrastructure",
-    ],
-    result: [
-      "Surfaced flood-prone low-lying plots",
-      "Flagged highland frost-risk zones",
-      "Fed directly into field-siting recommendations",
+    points: [
+      "Digital elevation model of terrain height across the region",
+      "Extracted geopotential height from ERA5-Land GRIB files, converted to elevation using standard gravity",
+      "Gridded into a choropleth layer alongside the other features",
+      "Shapes micro-climate — temperature lapse rate, drainage, frost risk",
+      "Surfaced flood-prone low-lying plots and highland frost-risk zones for field-siting decisions",
     ],
   },
   {
@@ -182,22 +128,12 @@ export const climateMaps = [
     title: "Growing Degree Days",
     file: "portfolio_growing_degree_days_map.jpg",
     metric: "Cumulative GDD · 2025",
-    what: [
-      "Cumulative heat units available for crop growth",
-      "Standard measure of a region's usable growing season",
-    ],
-    how: [
-      "Computed daily GDD from ERA5-Land min/max temperature",
-      "Measured against each crop's base temperature",
+    points: [
+      "Cumulative heat units available for crop growth — a region's usable growing season",
+      "Computed daily GDD from ERA5-Land min/max temperature against each crop's base temperature",
       "Summed across the year in the same PySpark pipeline",
-    ],
-    why: [
-      "Decides if a region can carry a crop through its full cycle",
-      "Most direct input into crop-variety selection",
-    ],
-    result: [
-      "Identified zones clearing the GDD threshold per crop",
-      "Tightened planting-calendar recommendations",
+      "Decides if a region can carry a crop through its full cycle — key input for crop-variety selection",
+      "Identified zones clearing the GDD threshold, tightening planting-calendar recommendations",
     ],
   },
 ];

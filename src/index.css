@@ -704,33 +704,18 @@ main {
   margin: 6px 0 20px;
 }
 
-.climate__whwr {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px 24px;
-}
-
-.climate__label {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
 .climate__points {
-  margin: 8px 0 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 
 .climate__points li {
-  padding-left: 16px;
+  padding-left: 18px;
   position: relative;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 14.5px;
+  line-height: 1.55;
   color: var(--text);
 }
 
@@ -744,9 +729,6 @@ main {
 @media (max-width: 640px) {
   .climate__frame {
     height: 220px;
-  }
-  .climate__whwr {
-    grid-template-columns: 1fr;
   }
 }
 
