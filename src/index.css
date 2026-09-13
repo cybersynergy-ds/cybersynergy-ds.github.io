@@ -519,6 +519,222 @@ main {
   color: var(--muted);
 }
 
+/* ── Climate maps (Experience / SBSF Agritech) ──────────── */
+.climate {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--border);
+}
+
+.climate__intro h4 {
+  font-size: 15px;
+}
+
+.climate__intro p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.climate__stage {
+  margin-top: 18px;
+}
+
+.climate__frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.climate__frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.climate__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), transparent);
+  color: #fff;
+  text-align: left;
+}
+
+.climate__caption span:first-child {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.climate__metric {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  opacity: 0.85;
+}
+
+.climate__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.climate__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.climate__dot--active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+.climate__modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 9, 7, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.climate__modal {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.climate__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 18px;
+}
+
+.climate__modal-image {
+  position: relative;
+  background: var(--bg-alt);
+}
+
+.climate__modal-image img {
+  display: block;
+  width: 100%;
+  max-height: 46vh;
+  object-fit: contain;
+}
+
+.climate__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 18px;
+  transition: background-color 0.2s ease;
+}
+
+.climate__nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.climate__nav--prev {
+  left: 14px;
+}
+
+.climate__nav--next {
+  right: 14px;
+}
+
+.climate__modal-body {
+  padding: 24px 28px 28px;
+}
+
+.climate__modal-body h4 {
+  font-size: 20px;
+}
+
+.climate__modal-metric {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 6px 0 20px;
+}
+
+.climate__whwr {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 24px;
+}
+
+.climate__label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.climate__whwr p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .climate__frame {
+    height: 220px;
+  }
+  .climate__whwr {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Tags ────────────────────────────────────────────────── */
 .tag-row {
   display: flex;

@@ -1,5 +1,6 @@
 import Section from "./Section";
 import Reveal from "./Reveal";
+import ClimateMaps from "./ClimateMaps";
 import { experience } from "../data/portfolio";
 
 export default function Experience() {
@@ -31,6 +32,7 @@ export default function Experience() {
                   </span>
                 ))}
               </div>
+              {job.company === "SBSF Agritech" && <ClimateMaps />}
             </div>
           </Reveal>
         ))}

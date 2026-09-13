@@ -56,6 +56,71 @@ export const experience = [
   },
 ];
 
+// ── Climate data lake maps (SBSF Agritech) ─────────────────────
+// 2025 annual-average layers derived from the ERA5-Land data lake.
+export const climateMaps = [
+  {
+    id: "temperature",
+    title: "Temperature",
+    file: "portfolio_temperature_map.jpg",
+    metric: "Annual avg 2m temperature · 2025",
+    what: "Annual average surface temperature across the coverage region, gridded at ~9km resolution.",
+    how: "Averaged ERA5-Land hourly 2m-temperature readings into daily and then annual means through a PySpark batch job running on the AWS data lake, queried via a dimensional schema built for fast SQL access.",
+    why: "Temperature governs pest pressure, evapotranspiration rates, and the exact point at which a crop starts losing yield to heat stress.",
+    result: "Produced heat-stress bands that let the team schedule irrigation and shade interventions before yield-critical thresholds were crossed.",
+  },
+  {
+    id: "precipitation",
+    title: "Precipitation",
+    file: "portfolio_precipitation_map.jpg",
+    metric: "Total annual precipitation · 2025",
+    what: "Spatial distribution of total rainfall received across the region over 2025.",
+    how: "Ingested hourly ERA5-Land precipitation fields through an event-driven Lambda ETL pipeline, aggregated to daily/annual totals, and cross-checked against ground station records.",
+    why: "Rainfall variability is the single biggest driver of irrigation demand and drought or waterlogging risk in a given plot.",
+    result: "Separated rainfall-deficit clusters that needed supplemental irrigation from rainfed-suitable zones, replacing guesswork with data-backed water budgeting.",
+  },
+  {
+    id: "wind_speed",
+    title: "Wind Speed",
+    file: "portfolio_wind_speed_map.jpg",
+    metric: "Annual avg wind speed · 2025",
+    what: "Average near-surface wind speed across the region for 2025.",
+    how: "Derived scalar wind speed from ERA5-Land u/v wind-vector components (√(u²+v²)), decompressed from GRIB files by the automated ingestion pipeline and rendered geospatially with Folium.",
+    why: "Wind speed drives pesticide-spray drift, evapotranspiration, and structural risk for greenhouses and polyhouses.",
+    result: "Defined safe-spray-window guidance per zone and flagged high-wind areas that needed windbreaks, cutting drift-related crop damage.",
+  },
+  {
+    id: "soil_ph",
+    title: "Soil pH",
+    file: "portfolio_soil_ph_map.jpg",
+    metric: "Soil acidity / alkalinity · 2025",
+    what: "Spatial variation in soil acidity and alkalinity across the region.",
+    how: "Joined ERA5-Land soil-moisture and soil-type layers with regional soil survey data on a common geospatial key, then modeled pH at grid level for the coverage area.",
+    why: "Soil pH controls nutrient availability — a crop can be fertilized correctly and still starve for nutrients if the pH is wrong.",
+    result: "Flagged acidic zones that needed lime amendment before planting, improving fertilizer return-on-investment for target farms.",
+  },
+  {
+    id: "elevation",
+    title: "Elevation",
+    file: "portfolio_elevation_map.jpg",
+    metric: "Terrain height (DEM) · static",
+    what: "Digital elevation model showing terrain height across the region.",
+    how: "Extracted geopotential height from ERA5-Land GRIB files, converted to elevation using standard gravity, and gridded into a choropleth layer alongside the other environmental features.",
+    why: "Elevation shapes micro-climate — temperature lapse rate, drainage, and frost risk — which is critical when siting crops and irrigation infrastructure.",
+    result: "Surfaced low-lying flood-prone plots and highland frost-risk zones, feeding directly into field-siting recommendations.",
+  },
+  {
+    id: "growing_degree_days",
+    title: "Growing Degree Days",
+    file: "portfolio_growing_degree_days_map.jpg",
+    metric: "Cumulative GDD · 2025",
+    what: "Cumulative heat units available for crop growth across 2025, the standard measure of how much 'growing season' a region actually has.",
+    how: "Computed daily GDD from ERA5-Land min/max temperature against a crop base temperature, then summed across the year in the same PySpark pipeline used for the other layers.",
+    why: "GDD determines whether a region can carry a given crop through its full growth cycle — the most direct input into crop-variety selection.",
+    result: "Tightened planting-calendar recommendations by identifying exactly which zones cleared the GDD threshold for target crops.",
+  },
+];
+
 // ── Add new projects here — newest first. ──────────────────────
 export const projects = [
   {
