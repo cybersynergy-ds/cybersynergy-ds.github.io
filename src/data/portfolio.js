@@ -16,7 +16,7 @@ export const profile = {
   location: "Chennai, India",
   email: "abhirupiiitdmk26@gmail.com",
   github: "https://github.com/cybersynergy-ds",
-  linkedin: "https://linkedin.com/in/abhirup-choudhury",
+  linkedin: "https://www.linkedin.com/in/abhirup-choudhury-617b27276",
 };
 
 export const summary =
