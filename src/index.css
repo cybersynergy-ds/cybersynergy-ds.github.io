@@ -719,11 +719,26 @@ main {
   color: var(--accent);
 }
 
-.climate__whwr p {
-  margin: 6px 0 0;
+.climate__points {
+  margin: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.climate__points li {
+  padding-left: 16px;
+  position: relative;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--text);
+}
+
+.climate__points li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 @media (max-width: 640px) {
