@@ -1,11 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  FiX,
-  FiChevronLeft,
-  FiChevronRight,
-  FiBox,
-} from "react-icons/fi";
+import { FiX, FiChevronLeft, FiChevronRight, FiBox } from "react-icons/fi";
+import EmbedLauncher from "./EmbedLauncher";
 import { climateMaps } from "../data/portfolio";
 
 const images = import.meta.glob("../assets/sbsf/*.jpg", {
@@ -28,7 +24,6 @@ export default function ClimateMaps() {
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [show3d, setShow3d] = useState(false);
 
   useEffect(() => {
     if (open || paused || slides.length < 2) return;
@@ -109,40 +104,17 @@ export default function ClimateMaps() {
         </div>
       </div>
 
-      <div className="climate__three-d">
-        {!show3d ? (
-          <button
-            type="button"
-            className="climate__three-d-cta"
-            onClick={() => setShow3d(true)}
-          >
-            <FiBox />
-            <span>
-              <strong>Explore in 3D:</strong> Elevation vs. Temperature
-              <small>Drag to rotate · scroll to zoom · click to load</small>
-            </span>
-          </button>
-        ) : (
-          <div className="climate__three-d-frame">
-            <div className="climate__three-d-head">
-              <span>Elevation vs. Temperature — interactive 3D</span>
-              <button
-                type="button"
-                className="climate__three-d-close"
-                onClick={() => setShow3d(false)}
-                aria-label="Close 3D model"
-              >
-                <FiX />
-              </button>
-            </div>
-            <iframe
-              src="/models/elevation-temperature-3d.html"
-              title="Elevation vs Temperature 3D model"
-              loading="lazy"
-            />
-          </div>
-        )}
-      </div>
+      <EmbedLauncher
+        icon={<FiBox />}
+        label={
+          <>
+            <strong>Explore in 3D:</strong> Elevation vs. Temperature
+          </>
+        }
+        hint="Drag to rotate · scroll to zoom · click to load"
+        title="Elevation vs Temperature — interactive 3D"
+        src="/models/elevation-temperature-3d.html"
+      />
 
       <AnimatePresence>
         {open && (
